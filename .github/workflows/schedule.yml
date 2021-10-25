@@ -1,19 +1,13 @@
-name: CI
+name: Schedule
 
 on:
-  push:
-    branches:
-      - 'master'
-    tags:
-      - 'v*'
-  pull_request:
-    branches:
-      - 'master'
+  schedule:
+    - cron: '0 3 * * *'
   workflow_dispatch:
 
 jobs:
-  ci:
-    name: CI
+  schedule:
+    name: Schedule
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -21,13 +15,8 @@ jobs:
         id: metadata
         with:
           images: ${{ secrets.REGISTRY_USER }}/${{ secrets.REGISTRY_IMAGE }}
-          tags: |
-            type=ref,event=branch
-            type=ref,event=pr
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
-            type=semver,pattern={{major}}
-            type=sha
+          flavor: |
+            latest=true
       - uses: docker/login-action@v1
         with:
           username: ${{ secrets.REGISTRY_USER }}
