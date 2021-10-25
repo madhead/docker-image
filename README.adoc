@@ -1,0 +1,4 @@
+= Docker image template
+
+Template repository for Docker images.
+Batteries included!
