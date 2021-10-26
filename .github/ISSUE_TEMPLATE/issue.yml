@@ -1,6 +1,6 @@
 name: Issue
 description: File an issue
-labels: ['issue']
+labels: ['🐛 issue']
 body:
   - type: textarea
     id: description
