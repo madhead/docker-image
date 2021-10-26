@@ -1,0 +1,34 @@
+name: Issue
+description: File an issue
+labels: ['issue']
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: textarea
+    id: system
+    attributes:
+      label: System information
+    validations:
+      required: false
+  - type: input
+    id: docker
+    attributes:
+      label: Docker version
+    validations:
+      required: true
+  - type: input
+    id: image
+    attributes:
+      label: Image version
+    validations:
+      required: true
